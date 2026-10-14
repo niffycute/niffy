@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    height: 100%;
+    overflow: hidden;
+    background-color: #1C1A14;
+  }
+
+  body {
+    height: 100%;
+    overflow: hidden;
+    background-color: #1C1A14;
+  }
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@layer utilities {
+  .animate-nudge {
+    animation: nudge 2s ease-in-out infinite;
+  }
+
+  .animate-rise {
+    animation: rise 0.45s ease forwards;
+  }
+}
+
+/* Mobile: slightly bolder and bigger text across the app */
+@media (max-width: 767px) {
+  html {
+    font-size: 17.5px; /* default browser base is 16px */
+  }
+
+  .font-body {
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-weight: 700;
+  }
+}

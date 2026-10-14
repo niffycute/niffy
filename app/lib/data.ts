@@ -1,0 +1,151 @@
+export const META = {
+  initials: "TS",
+  timezone: "GMT+1",
+  location: "Nigeria /",
+  experience: "3+ years",
+  role: "Full-Stack Engineer",
+  skillset: "Design, Code and Push",
+  twitter: "https://twitter.com/Talesoftoba",
+  email: "Tobaking4@gmail.com",
+  github: "https://github.com/Talesoftoba",
+  linkedin: "https://linkedin.com/in/samuel-ayoola-7b70823ab",
+  phone: "2349039224121",
+  cv: "/Samuel_Ayoola_CV-fullstack.pdf",
+};
+
+export const TIMELINE: { role: string; period: string }[] = [
+  { role: "Freelance",    period: "2025 – Now"  },
+  { role: "Site",         period: "2024 - Now"   },
+  { role: "Tutor-class",      period: "2022 -2023" },
+  { role: "Internship", period: "2021 – 2022" },
+];
+
+export const WORK: {
+   title: string;
+   tag: string;
+    desc: string;
+   link:string;
+   image:string;
+   }[] = [
+  {
+    title: "Full stack ",
+    tag: "Nextjs / React / Typescript / Node.js / Express.js / postgreSQL / C#",
+    desc: "I build things for the web  — clean interfaces, solid backends and everything in between. ",
+    link: "",
+    image:""
+  },
+  {
+    title: "Frontend Development",
+    tag: "React / Typescript / Nextjs / supabase / Tailwind",
+    desc: "I turn designs into fast, clean, and intuitive web experiences. React & Next.js are my playground — every pixel intentional, every interaction smooth.",
+    link:"",
+    image:"",
+  },
+  {
+    title: "UI / UX Design",
+    tag: "Figma",
+    desc: "I design experiences people don't have to think about. Clean layouts, thoughtful interactions, and interfaces that just feel right.",
+    link:"",
+    image:""
+  },
+];
+
+export const STACK = [
+  "React", "Next.js", "TypeScript",
+  "Figma", "Framer", "Tailwind",
+   "Git", 
+];
+
+export const PROJECTS: { title: string; desc: string; tags: string[]; year: string; link: string; image: string }[] = [
+  {
+    title: "Full stack e-commerce site",
+    desc: "A modern, production-ready e-commerce platform built for performance, security, and seamless user experience.",
+    tags:  ["Next.js", "Tailwind", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Supabase"],
+    year: "2025",
+    link: "https://nextjs-storeweb.vercel.app",
+    image:"/projects/ecomm.jpg",
+  },
+{
+  title: "Bank Loan App",
+  desc: "A pixel-perfect banking and loan application UI built from a Figma design. ",
+  tags: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Figma",
+    "Responsive Design"
+  ],
+  year: "2025",
+  link: "https://loan-app-bay.vercel.app",
+  image: "/projects/loan.jpg",
+},
+    {
+    title: "Spendly SaaS Finance Dashboard",
+    desc: "personal finance tracking app that helps users manage their money in one place.",
+    tags:   ["Next.js", "Tailwind", "TypeScript", "React", "Node.js", "Express", "PostgreSQL", "Supabase"],
+    year: "2026",
+    link: "https://spendly-steel.vercel.app/",
+    image:"/projects/saas.jpg",
+  },
+  {
+    title: "Primx",
+    desc: "PrimX is a full-stack maritime marketplace designed to connect vessel owners, service providers, and maritime professionals across Africa.",
+   tags: [
+  "Next.js 15",
+  "React 19",
+  "TypeScript",
+  "Tailwind CSS",
+  "Shadcn UI",
+  "Firebase",
+  "Firestore",
+  "Firebase Auth",
+  "Genkit AI",
+  "Gemini AI",
+  "Recharts",
+  "Zod",
+  "React Hook Form",
+  "Vercel"
+],
+    year: "2026",
+    link: "https://primx-market.vercel.app/",
+    image:"/projects/primx.jpg",
+  },
+  {
+    title: "Freelance Projects",
+    desc: "A collection of client work spanning landing pages, design systems, and web apps.",
+    tags: ["Framer", "React", "GSAP"],
+    year: "2024",
+    link: "#",
+    image:"",
+  },
+];
+
+export const CRAFT: { title: string; desc: string; type: string }[] = [
+  {
+    title: "Micro-interactions",
+    desc: "Subtle animations that make interfaces feel alive — hover states, transitions, and feedback loops.",
+    type: "Motions",
+  },
+  {
+    title: "Typography Systems",
+    desc: "Building type scales that are beautiful at every size, from display headings to captions.",
+    type: "Design",
+  },
+  {
+    title: "Component Architecture",
+    desc: "Structuring React components for maximum reusability and minimum complexity.",
+    type: "Code",
+  },
+  {
+    title: "Design Tokens",
+    desc: "Creating single-source-of-truth token systems that keep design and code in sync.",
+    type: "Systems",
+  },
+];
+
+export const NAV = [
+  { label: "Home",  icon: "home"      },
+  { label: "Work",  icon: "briefcase" },
+  { label: "Craft", icon: "pen"       },
+] as const;

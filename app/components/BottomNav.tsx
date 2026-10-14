@@ -1,0 +1,113 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { IconHome, IconBriefcase, IconPen } from "./icons";
+import { motion, type Variants } from "framer-motion";
+
+const NAV = [
+  { label: "Home",       href: "/",      icon: IconHome      },
+  { label: "Work",       href: "/work",  icon: IconBriefcase },
+  { label: "Experience", href: "/craft", icon: IconPen       },
+];
+
+// NOTE: BottomNav currently remounts on every route change because each page
+// renders its own <CardShell>. A fresh mount with an entrance animation
+// (items sliding up from y:12 with a delay) is exactly what reads as the nav
+// "jumping" on navigation — so the entrance animation has been removed here.
+// The real fix is to hoist <CardShell> (and therefore this nav) into a shared
+// app/layout.tsx so it persists across routes instead of remounting; once
+// that's done, the entrance animation below can be safely restored since it
+// would then only play once, on first load.
+const navVariants: Variants = {
+  hidden: {},
+  show:   { transition: { staggerChildren: 0 } },
+};
+
+const itemVariant: Variants = {
+  hidden: { opacity: 1, y: 0 },
+  show:   { opacity: 1, y: 0 },
+};
+
+export default function BottomNav() {
+  const pathname = usePathname();
+
+  return (
+    <motion.nav
+      className="md:hidden grid grid-cols-3 items-center py-2
+        relative z-50 bg-[#1C1A17]/95 backdrop-blur-md
+        border-t border-white/[0.08]
+        after:absolute after:inset-0 after:pointer-events-none"
+      style={{ paddingBottom: "max(0.5rem, env(safe-area-inset-bottom))" }}
+      variants={navVariants}
+      initial="hidden"
+      animate="show"
+    >
+      {/* Faint top-edge glow — ties this nav to the sidebar and card seam */}
+      <div
+        aria-hidden
+        className="absolute -top-px left-1/2 -translate-x-1/2 w-32 h-px pointer-events-none"
+        style={{ background: "linear-gradient(to right, transparent, rgba(255,92,0,0.4), transparent)" }}
+      />
+
+      {NAV.map(({ label, href, icon: Icon }) => {
+        const active = pathname === href;
+        return (
+          <motion.div
+            key={label}
+            variants={itemVariant}
+            whileHover={{ scale: 1.1, y: -2, transition: { type: "spring", stiffness: 380, damping: 18 } }}
+            whileTap={{ scale: 0.88, transition: { duration: 0.08 } }}
+            className="flex justify-center"
+          >
+            <Link
+              href={href}
+              prefetch
+              scroll={false}
+              className={`relative flex flex-col items-center gap-1.5 px-5 py-2 rounded-2xl font-display text-[10px]
+                font-extrabold tracking-[0.12em] uppercase no-underline transition-colors duration-150
+                touch-manipulation select-none
+                ${active ? "text-[#FF5C00]" : "text-white/60 active:text-white"}`}
+            >
+              {/* Active pill — plain pop-in on mount. No layoutId: since BottomNav
+                  remounts on every navigation (each page has its own CardShell),
+                  there's no persistent element to slide between, and keeping
+                  layoutId here was causing Framer Motion to try (and sometimes
+                  fail) to match a ghost of the previous unmounted element. */}
+              {active && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="absolute inset-0 rounded-2xl bg-white/10"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
+
+              {/* Small active dot above the icon, echoes the sidebar's navDot */}
+              {active && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="absolute -top-0.5 w-1 h-1 rounded-full bg-[#FF5C00]"
+                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
+                />
+              )}
+
+              <motion.span
+                className="relative"
+                animate={active
+                  ? { scale: 1.2, transition: { type: "spring", stiffness: 340, damping: 18 } }
+                  : { scale: 1,   transition: { type: "spring", stiffness: 280, damping: 22 } }
+                }
+                style={{ display: "flex" }}
+              >
+                <Icon />
+              </motion.span>
+              <span className="relative">{label}</span>
+            </Link>
+          </motion.div>
+        );
+      })}
+    </motion.nav>
+  );
+}
