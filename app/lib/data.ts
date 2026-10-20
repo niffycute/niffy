@@ -6,10 +6,10 @@ export const META = {
   role: "Full-Stack Engineer",
   skillset: "Design, Code and Push",
   twitter: "https://twitter.com/Talesoftoba",
-  email: "Tobaking4@gmail.com",
-  github: "https://github.com/Talesoftoba",
+  email: "oluwabukolaagunbiade1@gmail.com",
+  github: "https://github.com/niffycute/niffy",
   linkedin: "https://linkedin.com/in/samuel-ayoola-7b70823ab",
-  phone: "2349039224121",
+  phone: "2347066161910",
   cv: "/Samuel_Ayoola_CV-fullstack.pdf",
 };
 

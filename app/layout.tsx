@@ -17,7 +17,7 @@ const dm = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Talesoftoba | Frontend Developer",
+  title: "Niffy | Website Developer",
   description: "I turn designs into code that actually ships and works.",
 };
 

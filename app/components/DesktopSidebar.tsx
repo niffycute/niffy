@@ -76,7 +76,7 @@ export default function DesktopSidebar() {
               {/* priority: on desktop this avatar is the largest above-the-fold
                   image, so it gets flagged as LCP — same fix as the mobile
                   avatar in CardShell. */}
-              <Image src="/avatar2.jpg" alt="Avatar" quality={100} fill sizes="52px" priority className="object-cover" />
+              <Image src="/avatar3.jpg" alt="Avatar" quality={100} fill sizes="52px" priority className="object-cover" />
             </div>
             {/* Presence dot — replaces the separate "available for work" pill */}
             <span
@@ -93,7 +93,7 @@ export default function DesktopSidebar() {
         {/* Name */}
         <motion.div variants={slideIn} className="mb-1.5">
           <h2 className="font-display text-[26px] font-extrabold tracking-[-0.04em] leading-none text-white">
-            Toba
+            Niffy
           </h2>
         </motion.div>
 
@@ -182,7 +182,7 @@ export default function DesktopSidebar() {
         style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
       >
         <p className="font-display text-[9.5px] font-bold tracking-[0.2em] uppercase text-white/40">
-          Talesoftoba
+          Niffy
         </p>
         <p className="font-body text-[10px] text-white/25 mt-0.5">
           © 2026 · built with Next.js
@@ -191,4 +191,4 @@ export default function DesktopSidebar() {
 
     </motion.aside>
   );
-}
+} 

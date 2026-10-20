@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { IconX, IconMail, IconGithub, IconLinkedin } from "./components/icons";
+import { IconMail, IconGithub } from "./components/icons";
 import { META } from "./lib/data";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import type { IconType } from "react-icons";
@@ -173,15 +173,6 @@ function ChevronDownIcon() {
   );
 }
 
-function ArrowUpRightIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <line x1="7" y1="17" x2="17" y2="7" />
-      <polyline points="7 7 17 7 17 17" />
-    </svg>
-  );
-}
-
 // ── Shared pieces ────────────────────────────────────────────────────────────
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -276,10 +267,8 @@ function ScrollCue() {
 }
 
 const LINKS = [
-  { href: META.twitter,           icon: <IconX />,        label: "Twitter",  target: true  },
-  { href: `mailto:${META.email}`, icon: <IconMail />,     label: "Email",    target: false },
-  { href: META.github,            icon: <IconGithub />,   label: "GitHub",   target: true  },
-  { href: META.linkedin,          icon: <IconLinkedin />, label: "LinkedIn", target: true  },
+  { href: `mailto:${META.email}`, icon: <IconMail />,   label: "Email",  target: false },
+  { href: META.github,            icon: <IconGithub />, label: "GitHub", target: true  },
 ];
 
 // Small icon-only circle for a social link — quiet, grouped together
@@ -304,30 +293,6 @@ function SocialIconLink({ href, icon, label, target, mobile }: {
           transition-colors duration-150 ${mobile ? "w-8 h-8" : "w-10 h-10"}`}
       >
         {icon}
-      </Link>
-    </motion.div>
-  );
-}
-
-// Standalone primary CTA — the one action that matters most, filled and distinct
-function ResumeButton({ mobile }: { mobile?: boolean }) {
-  return (
-    <motion.div
-      variants={chipVariant}
-      whileHover={{ scale: 1.03, y: -2, transition: { type: "spring", stiffness: 400, damping: 16 } }}
-      whileTap={{ scale: 0.96, transition: { duration: 0.08 } }}
-      className="shrink-0"
-    >
-      <Link
-        href="/Samuel_Ayoola_CV-fullstack.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`flex items-center gap-2 bg-[#FF5C00] text-white rounded-full
-          font-display font-bold tracking-[0.07em] uppercase no-underline
-          hover:bg-[#e65200] transition-colors duration-150 whitespace-nowrap
-          ${mobile ? "px-4 py-2 text-[10.5px]" : "px-6 py-2.5 text-[11px]"}`}
-      >
-        View resume <ArrowUpRightIcon />
       </Link>
     </motion.div>
   );
@@ -465,7 +430,7 @@ export default function Home() {
           performance, scalability, and user experience.
         </motion.p>
 
-        {/* Contact row — icons + resume button forced onto one line, no wrap */}
+        {/* Contact row — email and GitHub icons */}
         <motion.div
           className="flex items-center gap-2 flex-nowrap mb-4 overflow-x-auto"
           variants={stagger(0.06)} initial="hidden" animate="show"
@@ -475,8 +440,6 @@ export default function Home() {
               <SocialIconLink key={label} href={href} icon={icon} label={label} target={target} mobile />
             ))}
           </div>
-          <span className="w-px h-6 bg-black/10 mx-0.5 shrink-0" />
-          <ResumeButton mobile />
         </motion.div>
 
         <ScrollCue />
@@ -553,8 +516,6 @@ export default function Home() {
               <SocialIconLink key={label} href={href} icon={icon} label={label} target={target} />
             ))}
           </div>
-          <span className="w-px h-6 bg-black/10 mx-1" />
-          <ResumeButton />
         </motion.div>
 
         <ScrollCue />
