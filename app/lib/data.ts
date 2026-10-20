@@ -3,7 +3,7 @@ export const META = {
   timezone: "GMT+1",
   location: "Nigeria /",
   experience: "3+ years",
-  role: "Full-Stack Engineer",
+  role: "WEBSITE DEVELOPER",
   skillset: "Design, Code and Push",
   twitter: "https://twitter.com/Talesoftoba",
   email: "oluwabukolaagunbiade1@gmail.com",
